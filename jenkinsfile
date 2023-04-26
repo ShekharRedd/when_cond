@@ -22,44 +22,13 @@ pipeline {
         { 
           steps
               { echo "deploy successfully"
+              echo "deploy vrson is ${VERSION}"
               }
-          steps{
-            echo "deploy vrson is ${VERSION}"
-          }
+
         }
   }
 
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
