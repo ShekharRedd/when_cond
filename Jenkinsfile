@@ -25,10 +25,21 @@ pipeline {
 
         stage("bui")
         {
+
+          input{
+                message "hello world"
+                ok "Done"
+
+          
+          parameters{
+              choice(name:"env",choices:["dev","enc"])
+          }
+          
+          }
           steps{
                 script{
             gv.build()
-            echo "hello ${env}"
+           
             
           }
           }
