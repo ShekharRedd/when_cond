@@ -23,28 +23,17 @@ pipeline {
             
           }
 
-      stage("build")
+        stage("bui")
         {
-          input{
-            message "select as the env ron"
-            ok "done"
-          }
-          parameters{
-            choice(name:"env",choices:["dev","stg","prod"])
-
-          }
           steps{
                 script{
             gv.build()
             echo "hello ${env}"
             
           }
-
           }
 
         }
-
-
 
   }
   }
