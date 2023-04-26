@@ -36,8 +36,12 @@ pipeline {
         steps{
           sh "python ${VERSION}"
         }
+        steps{
+          echo "hello worlssdfs df"
+        }
 
   }
 
+    }
 
   }
