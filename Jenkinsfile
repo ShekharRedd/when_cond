@@ -22,11 +22,10 @@ pipeline {
       stage("deplov")
         { 
           steps
-              { echo "deploy successfully"
+              { 
+                echo "deploy successfully"
               }
-          steps{
-            echo "deploy vrson is ${VERSION}"
-          }
+
         }
       stage("python files execute"){
         // when{
