@@ -1,9 +1,9 @@
 pipeline {
   agent any
   parameters{
-    choice(name:'VERSION',choices:['1.2.1','1.2.2','1.2.3'],description:'')
+    choice(name:'VERSION',choices:['a.py','b.py','c.py'],description:'')
     booleanParam(name:'exeuteTests',defaultValue:true,description:'')
-    choice(name:"pythonfiles",choices:['a.py','b.py','c.py'])
+
   }
     stages{
       stage("build")
@@ -34,7 +34,7 @@ pipeline {
         //   }
         // }
         steps{
-          sh "python ${pythonfiles}.py"
+          sh "python ${VERSION}.py"
         }
       }
   }
