@@ -1,0 +1,24 @@
+pipeline {
+  agent any
+    stages{
+            stage("build")
+                {
+                  when{
+                    expression{
+                      env.BRANCH_NAME=='main'
+
+                    }
+                  }
+                  steps 
+                    { 
+                       echo "hello world"
+                    }
+                }
+            stage("deplov")
+                { 
+                  steps
+                     { echo "deploy successfully"
+                     }
+                }
+    }
+}
