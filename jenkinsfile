@@ -22,7 +22,7 @@ pipeline {
                      { 
                      
                      sh ' git branch '
-                     sh ' ${env.BRANCH_NAME}'
+                     
                      
                      
                      echo "deploy successfully"
