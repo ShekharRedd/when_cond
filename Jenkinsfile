@@ -10,6 +10,7 @@ pipeline {
                 script{
                 
                 gv=load "nara.groovy"
+                gv.build()
             }
             }
 
