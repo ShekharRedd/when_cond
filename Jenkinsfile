@@ -36,6 +36,8 @@ pipeline {
         steps{
           sh "python ${VERSION}"
         }
+        steps{
+          sh "hello world"
       }
   }
 
