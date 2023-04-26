@@ -32,14 +32,14 @@ pipeline {
 
           
           parameters{
-              choice(name:"env",choices:["dev","enc"])
+              choice(name:"enver",choices:["dev","enc"])
           }
           
           }
           steps{
                 script{
             gv.build()
-               echo "env employ ${env}"
+               echo "dsfsdfrf employ ${enver}"
             
           }
           }
