@@ -39,7 +39,7 @@ pipeline {
           steps{
                 script{
             gv.build()
-           
+               echo "env employ ${env}"
             
           }
           }
