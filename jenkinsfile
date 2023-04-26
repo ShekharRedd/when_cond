@@ -1,12 +1,13 @@
 pipeline {
   agent any
+  environment{
+      env.BRANCH_NAME="main"
     stages{
             stage("build")
                 {
                   when{
                     expression{
-                      env.BRANCH_NAME=='null' || env.CODE_CHANGE==true
-
+                      env.BRANCH_NAME=='main'
                     }
                   }
                   steps 
@@ -20,6 +21,7 @@ pipeline {
                      { 
                      
                      sh ' git branch '
+                     sh ' ${env.BRANCH_NAME}'
                      
                      
                      echo "deploy successfully"
