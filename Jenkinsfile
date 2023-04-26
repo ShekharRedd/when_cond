@@ -28,7 +28,7 @@ pipeline {
           steps{
                 script{
             gv.build()
-            echo "hello ${env}"
+           
             
           }
           }
