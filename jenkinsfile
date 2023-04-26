@@ -1,34 +1,65 @@
-CODE_CHANGES=getGitChanges()
 
 pipeline {
   agent any
-  environment{
-      BRANCH_NAME="main"
-      }
+  parameters{
+    choice(name:'VERSION',choices:['1.2.1','1.2.2','1.2.3'],description:'')
+    booleanParam(name:'exeuteTests',defaultValue:true,description:'')
+  }
     stages{
-            stage("build")
-                {
-                  when{
-                    expression{
-                      env.BRANCH_NAME=='main' 
-                    }
-                  }
-                  steps 
-                    { 
-                       echo "hello world"
-                    }
-                }
-            stage("deplov")
-                { 
-                  steps
-                     { 
-                     
-                     echo "asg"
-                     
-                     
-                     
-                     echo "deploy successfully"
-                     }
-                }
-    }
-}
+      stage("build")
+        {
+          when{
+            expression{
+              params.exeuteTests
+            }
+          }
+          steps 
+            { 
+              echo "hello world"
+            }
+        }
+      stage("deplov")
+        { 
+          steps
+              { echo "deploy successfully"
+              }
+          steps{
+            echo "deploy vrson is ${VERSION}"
+          }
+        }
+  }
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
