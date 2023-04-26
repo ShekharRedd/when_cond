@@ -17,7 +17,12 @@ pipeline {
             stage("deplov")
                 { 
                   steps
-                     { echo "deploy successfully"
+                     { 
+                     
+                     sh ' git branch '
+                     
+                     
+                     echo "deploy successfully"
                      }
                 }
     }
