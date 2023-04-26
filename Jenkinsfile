@@ -9,39 +9,32 @@ pipeline {
     
   }
     stages{
-          stage("init"){
-            gv=load "nara.groovy"
+          stage("init")
+          {
+            script{
+                gv=load "nara.groovy"
+            }
+            
           }
 
       stage("build")
         {
-          when{
-            expression{
-              params.exeuteTests
-            }
-          }
           script{
             gv.build()
           }
         }
       stage("deplov")
         { 
-            script{
-              gv.deploy()
+          script{
+            gv.deploy()
             }
         }
       stage("python files execute"){
-        // when{
-        //   expression{
-        //     params.pythonfiles
-        //   }
-        // }
+
         script{
           gv.envn()
         }
 
       }
   }
-
-
   }
