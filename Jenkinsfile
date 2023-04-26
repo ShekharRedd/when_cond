@@ -1,12 +1,18 @@
 
+def gv
+
 pipeline {
   agent any
   parameters{
-    choice(name:'VERSION',choices:['a.py','b.py','c.py'],description:'')
+    choice(name:"pythonfiles",choices:['a.py','b.py','c.py'])
     booleanParam(name:'exeuteTests',defaultValue:true,description:'')
-
+    
   }
     stages{
+          stage("init"){
+            gv=load "nara.groovy"
+          }
+
       stage("build")
         {
           when{
@@ -14,18 +20,15 @@ pipeline {
               params.exeuteTests
             }
           }
-          steps 
-            { 
-              echo "hello world"
-            }
+          script{
+            gv.build()
+          }
         }
       stage("deplov")
         { 
-          steps
-              { 
-                echo "deploy successfully"
-              }
-
+            script{
+              gv.deploy()
+            }
         }
       stage("python files execute"){
         // when{
@@ -33,13 +36,12 @@ pipeline {
         //     params.pythonfiles
         //   }
         // }
-        steps{
-          sh "python ${VERSION}"
+        script{
+          gv.envn()
         }
 
-
+      }
   }
 
-    }
 
   }
