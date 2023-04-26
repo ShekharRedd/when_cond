@@ -1,3 +1,5 @@
+CODE_CHANGES=getGitChanges()
+
 pipeline {
   agent any
   environment{
@@ -8,7 +10,7 @@ pipeline {
                 {
                   when{
                     expression{
-                      env.BRANCH_NAME=='main'
+                      env.BRANCH_NAME=='main' 
                     }
                   }
                   steps 
