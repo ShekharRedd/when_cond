@@ -34,7 +34,7 @@ pipeline {
         //   }
         // }
         steps{
-          sh "python ${VERSION}.py"
+          sh "python ${VERSION}"
         }
       }
   }
